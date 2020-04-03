@@ -399,6 +399,10 @@ class capability {
         if ($post->is_private_reply_intended_for_user($user)) {
             return true;
         }
+        
+        if ($post->is_owned_by_user($user)) {
+           return true;
+        }
 
         return $this->can_view_any_private_reply($user);
     }
